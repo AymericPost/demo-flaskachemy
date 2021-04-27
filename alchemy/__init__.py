@@ -3,6 +3,7 @@ from os import environ
 
 from models import init_db
 from controllers.UserController import user_blueprint
+from controllers.AddressController import address_blueprint
 
 def create_app():
     app = Flask(__name__)
@@ -18,4 +19,5 @@ def create_app():
             abort(404)
     
     app.register_blueprint(user_blueprint, url_prefix = "/api/users")
+    app.register_blueprint(address_blueprint, url_prefix = "/api/addresses")
     return init_db(app)

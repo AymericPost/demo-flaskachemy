@@ -14,6 +14,9 @@ def create_user():
         newUser.name = body["name"]
         newUser.email = body["email"]
 
+        if("address_id" in body):
+            newUser.address_id = body["address_id"]
+
         try:
             db.session.add(newUser)
             db.session.commit()
@@ -67,6 +70,9 @@ def update_user():
 
     if("email" in body):
         updating.email = body["email"]
+
+    if("address_id" in body):
+            newUser.address_id = body["address_id"]
 
     try:
         db.session.commit()
